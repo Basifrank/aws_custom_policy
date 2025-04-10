@@ -1,0 +1,36 @@
+{
+    "service": {"s3": {
+                    "Resource": ["accesspoint", "bucket", "storagelensgroup", "object"],
+                    "format": {
+                     "accesspoint":"arn:${Partition}:s3:${Region}:${Account}:accesspoint/${AccessPointName}",
+                    "bucket":"arn:${Partition}:s3:::${BucketName}*",
+                     "storagelensgroup":"arn:${Partition}:s3:${Region}:${Account}:storage-lens-group/${Name}",
+                     "object": "${Partition}:s3:::${BucketName}/${ObjectName}"
+                      },
+                    "link":"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html#amazons3-resources-for-iam-policies" 
+                    },
+                
+                "IAM": {
+                        "Resource": ["mfa", "role", "user"],
+                        "format": {
+                         "mfa":"arn:${Partition}:iam::${Account}:mfa/${MfaTokenIdWithPath}",
+                        "role":"arn:${Partition}:iam::${Account}:role/${RoleNameWithPath}",
+                         "user":"arn:${Partition}:iam::${Account}:user/${UserNameWithPath}"
+                          },
+                        "link":"https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies" 
+                    },
+
+                "EC2": {
+                        "Resource": ["elastic-ip", "fleet", "instance", "image"],
+                        "format": {
+                         "elastic-ip":"arn:${Partition}:ec2:${Region}:${Account}:elastic-ip/${AllocationId}",
+                        "fleet":"arn:${Partition}:ec2:${Region}:${Account}:fleet/${FleetId}",
+                         "instance":"arn:${Partition}:ec2:${Region}:${Account}:instance/${InstanceId}",
+                         "image": "arn:${Partition}:ec2:${Region}::image/${ImageId}"
+                          },
+                        "link":"https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-resources-for-iam-policies"
+                    }
+                }
+
+
+}
